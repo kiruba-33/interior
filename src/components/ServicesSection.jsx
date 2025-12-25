@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom';
+import { useReveal } from '../hooks/useReveal';
 
 function ServicesSection() {
   const navigate = useNavigate();
+  const revealRef = useReveal();
   const services = [
     {
       title: "Modular Kitchen",
@@ -41,7 +43,7 @@ function ServicesSection() {
   ];
 
   return (
-    <section className="bg-white py-24">
+    <section ref={revealRef} className="bg-white py-24">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Top Heading */}
@@ -66,7 +68,7 @@ function ServicesSection() {
         </p>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-3 gap-10 glass-card">
           {services.map((s, index) => (
             <div
               key={index}
@@ -86,7 +88,7 @@ function ServicesSection() {
                 {s.desc}
               </p>
 
-              <button className="mt-4 px-6 py-2 text-black border border-black hover:bg-[#d4a373] hover:border-[#d4a373] transition font-medium">
+              <button className="mt-4 px-6 py-2 glass-btn-light rounded hover:bg-[#d4a373] hover:border-[#d4a373] transition font-medium">
                 Learn More
               </button>
             </div>
@@ -97,7 +99,7 @@ function ServicesSection() {
         <div className="mt-12 text-center">
          <button
   onClick={() => navigate("/services")}
-  className="px-10 py-3 bg-black text-white text-lg font-semibold hover:bg-[#d4a373] transition-all duration-300"
+  className="px-10 py-3 glass-btn-light rounded text-lg font-semibold hover:bg-[#d4a373] transition-all duration-300"
 >
   Explore All Services
 </button>

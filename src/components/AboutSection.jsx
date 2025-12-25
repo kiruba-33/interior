@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import { useReveal } from "../hooks/useReveal";
 
 function AboutSection() {
+  const revealRef = useReveal();
   const navigate = useNavigate()
   return (
-    <section className="py-24 bg-[#0f0f0f] text-white">
+    <section ref={revealRef} className="py-24 bg-[#0f0f0f] text-white">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
         {/* Left Image */}
@@ -38,7 +40,7 @@ function AboutSection() {
             and surrounding areas.
           </p>
 
-          <button onClick={() => navigate('/about')} className="mt-8 px-8 py-3 bg-white text-black font-semibold hover:bg-[#d4a373] transition">
+          <button onClick={() => navigate('/about')} className="mt-8 px-8 py-3 glass-btn font-semibold hover:bg-[#d4a373] transition rounded">
             KNOW MORE ABOUT US
           </button>
         </div>
