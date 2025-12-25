@@ -60,9 +60,16 @@ function HeroSlider() {
         {slides.map((s, index) => (
           <SwiperSlide key={index}>
             <div
-              className="w-full h-full bg-cover bg-center relative"
+              className="
+                w-full
+                min-h-[100svh] h-[100svh]
+                md:h-screen
+                bg-cover bg-no-repeat bg-center
+                relative
+              "
               style={{ backgroundImage: `url(${s.img})` }}
             >
+
               {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent" />
 
